@@ -1,0 +1,15 @@
+.container { 
+    padding: 2rem;
+    max-width: 48rem
+    margin: 0 auto;
+}
+
+
+.slider {
+    display: flex;
+    aspect-ratio: 16 /9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+
