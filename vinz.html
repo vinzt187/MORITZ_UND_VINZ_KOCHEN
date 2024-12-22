@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<button onclick="window.location.href='moritz.html';">Home</button>
+
+<button onclick="window.location.href='unterseite.html';">Pizza</button>
+
+<button onclick="window.location.href='mehdi.html';">Zimtschnecken</button>
+
+<button onclick="window.location.href='index.html';">Pfannkuchen</button>
+<button onclick="window.location.href='Kilian.html';">Ofencurry mit Hähnchen</button>
+<button onclick="window.location.href='Bathuan.html';">Dubeischockolade</button>
+
+    <meta charset="UTF-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Pfannkuchen</title>
+    <style>
+        body {
+            background-color: #D3D3D3;
+        }
+
+        .bild {
+            text-align: center;
+        }
+
+        button {
+            background-color: grey;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+        button:disabled {
+            background-color: lightgrey;
+            cursor: not-allowed;
+        }
+
+        .content-box {
+            background-color: white;
+            width: 490px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .review-box {
+            background-color: grey;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><strong>Leckeres Pfannkuchen Rezept</strong></h1>
+    <br>
+
+    <div style="background-color: white; color: red; width: 150px;">
+        <p>Rezept:<br>250g 550 Mehl  <input type="checkbox"><br>1 Prise Salz   <input type="checkbox"><br>500ml Milch   <input type="checkbox"><br>3 Eier   <input type="checkbox"></p>
+    </div>
+    <br>
+
+    <p>ZUBEREITUNG:<br>Alles in einer Schüssel mischen <br>Pfanne einfetten<br>Einen Schöpfer Teig reingeben und wenn der Pfannkuchen an der Unterseite braun ist mit einem Pfannenwender wenden</p>
+
+    <br>
+
+    <p>Lecker schmecken sie mit Marmelade oder Nuss-Nougat-Creme</p>
+    <img src="pfankuchen.jfif" style="width:500px" alt="Pfannkuchen">
+    <br>
+    <p>Viel Spaß beim Nachmachen und Guten Appetit!</p>
+    <br>
+
+    <div class="content-box">
+        <p>Rezensionen</p>
+        <div class="review-box">Ryan Stecken<br>Ich finde das Rezept super, meine ganze Familie mag es! Top 5 Sterne.</div>
+        <div class="review-box">Fixi Hartmann<br>Super tolles Rezept, schmeckt echt Top!</div>
+
+        <br>
+        <input type="text" id="reviewInput" placeholder="Eigene Rezension" style="width: 100%; padding: 8px;" oninput="toggleSubmitButton()">
+        <button id="submitButton" onclick="submitReview()" disabled>Absenden</button>
+        <p class="error-message" id="errorMessage">Das Feld darf nicht leer sein!</p>
+        <br>
+    </div>
+    <br>
+
+    <p>Schau gerne auf meinem Instagram vorbei:</p>
+    <a href="https://www.instagram.com/kochen_mit_vinz/" title="Instagram-GY">
+        <img src="https://www.kolleg-illertissen.de/wp-content/themes/schulwerk/assets/images/icon-instagram_color_2x.svg" width="31" height="31" alt="Instagram">
+    </a>
+
+    <script>
+        function submitReview() {
+            var reviewInput = document.getElementById('reviewInput').value;
+            var errorMessage = document.getElementById('errorMessage');
+            
+            // Überprüfen, ob das Feld leer ist
+            if (reviewInput === "") {
+                errorMessage.style.display = "block";  // Fehlermeldung anzeigen
+            } else {
+                errorMessage.style.display = "none";   // Fehlermeldung verstecken
+                alert("Deine Rezension wurde gesendet!"); // Dies könnte mit einer Serveranfrage ersetzt werden
+            }
+        }
+
+        function toggleSubmitButton() {
+            var reviewInput = document.getElementById('reviewInput').value;
+            var submitButton = document.getElementById('submitButton');
+            
+            // Wenn das Eingabefeld leer ist, wird der Button deaktiviert
+            if (reviewInput.trim() === "") {
+                submitButton.disabled = true;
+            } else {
+                submitButton.disabled = false;
+            }
+        }
+
+        // Funktion, die den Button aktiviert, wenn Enter gedrückt wird und das Feld nicht leer ist
+        function checkEnter(event) {
+            if (event.key === "Enter") {
+                var reviewInput = document.getElementById('reviewInput').value;
+                if (reviewInput.trim() !== "") {
+                    submitReview();  // Wenn Enter gedrückt wird, wird die Rezension abgesendet
+                }
+            }
+        }
+
+        // Verhindern, dass Enter die Seite neu lädt (optional, aber nützlich)
+        document.getElementById('reviewInput').addEventListener('keydown', function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                checkEnter(event);
+            }
+        });
+    </script>
+</body>
+</html>
