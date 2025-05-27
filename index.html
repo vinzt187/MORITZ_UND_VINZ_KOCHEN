@@ -5,8 +5,12 @@
 </head>
 
 <body onload="checkCookie()"></body>
-
-
+   <script>
+     const pass = prompt("Passwort:")
+     if (pass !== "ghg187") {
+       document.body.innerHTML = "Zugriff verweigert";
+     }	
+	     </script>
 	  <style>
         body {
             background-color: #D3D3D3;
@@ -230,7 +234,7 @@ footer {
 		
   <p>Ersteller der Website: Moritz Vogelpohl + Vinzenz Tischer<br>
   <a href="mailto:info@schueler-kochbuch.de">info@schueler-kochbuch.de</a></p>
-		<a href="moritz-und-vinz-kochen.pages.dev/Datenschutzerklärung">Datenschutzerklärung</a>
+		<a href="https://moritz-und-vinz-kochen.pages.dev/Datenschutzerklärung">Datenschutzerklärung</a>
 	
 </footer>
 
